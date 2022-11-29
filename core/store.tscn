@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8obp5jbjdkgw"]
+
+[ext_resource type="Script" path="res://plugins/flathub/core/store.gd" id="1_y2sa5"]
+[ext_resource type="Script" path="res://core/systems/network/multi_http_request.gd" id="2_6yv0o"]
+
+[node name="FlatHubStore" type="Node"]
+script = ExtResource("1_y2sa5")
+store_id = "flathub"
+store_name = "FlatHub"
+store_image = "res://plugins/flathub/assets/grid-landscape.png"
+
+[node name="PopularHTTP" type="HTTPRequest" parent="."]
+
+[node name="SearchHTTP" type="HTTPRequest" parent="."]
+
+[node name="DetailsHTTP" type="HTTPRequest" parent="."]
+
+[node name="ImageHTTP" type="Node" parent="."]
+script = ExtResource("2_6yv0o")
+
+[connection signal="request_completed" from="PopularHTTP" to="." method="_on_popular_http_request_completed"]
+[connection signal="request_completed" from="ImageHTTP" to="." method="_on_image_http_request_completed"]

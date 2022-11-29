@@ -1,0 +1,14 @@
+{
+  "plugin.id": "flathub",
+  "plugin.name": "FlatHub",
+  "plugin.version": "1.0.0",
+  "plugin.min-api-version": "1.0.0",
+  "plugin.link": "https://github.com/ShadowBlip/OpenGamepadUI-flathub-plugin",
+  "plugin.source": "https://github.com/ShadowBlip/OpenGamepadUI-flathub-plugin",
+  "plugin.description": "FlatHub store and library for OpenGamepadUI",
+  "store.tags": [],
+  "store.images": [],
+  "author.name": "William Edwards",
+  "author.email": "shadowapex@gmail.com",
+  "entrypoint": "plugin.gd"
+}
