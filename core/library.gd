@@ -9,7 +9,7 @@ func _ready() -> void:
 # Return a list of installed flatpak applications
 func get_library_launch_items() -> Array:
 	var output: Array = []
-	var code = OS.execute("flatpak", ["list", "--app", "--columns=application"], output)
+	var code = OS.execute("flatpak", ["list", "--app", "--columns=name,application"], output)
 	
 	var installed: Array = []
 	for out in output:
@@ -17,9 +17,12 @@ func get_library_launch_items() -> Array:
 		for line in lines:
 			if line == "":
 				continue
-			var appId: String = line
+			var app: Array = line.split("\t")
+			var appName: String = app[0]
+			var appId: String = app[1]
 			var library_item: LibraryLaunchItem = LibraryLaunchItem.new()
-			library_item.name = appId
+			print(appName)
+			library_item.name = appName
 			library_item.provider_app_id = appId
 			library_item.installed = true
 			library_item.command = "/usr/bin/flatpak"

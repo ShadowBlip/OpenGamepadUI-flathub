@@ -8,6 +8,7 @@ INSTALL_DIR := $(HOME)/.local/share/godot/app_userdata/Open Gamepad UI/plugins
 .PHONY: dist
 dist: build
 	mkdir -p dist
+	touch dist/.gdignore
 	cp $(BUILD_DIR)/plugins.zip dist/$(PLUGIN_NAME).zip
 	cp plugin.json dist/$(PLUGIN_NAME).json
 
