@@ -3,7 +3,8 @@ extends Library
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
-	print("Flatpak Library loaded")
+	logger = Log.get_logger("FlatHub")
+	logger.info("Flatpak Library loaded")
 
 
 # Return a list of installed flatpak applications
@@ -21,7 +22,6 @@ func get_library_launch_items() -> Array:
 			var appName: String = app[0]
 			var appId: String = app[1]
 			var library_item: LibraryLaunchItem = LibraryLaunchItem.new()
-			print(appName)
 			library_item.name = appName
 			library_item.provider_app_id = appId
 			library_item.installed = true

@@ -5,22 +5,22 @@ var store_items: Array = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
-	print("FlatHub Store loaded")
+	logger = Log.get_logger("FlatHub")
+	logger.info("FlatHub Store loaded")
 
 
 func load_home():
 	var http: HTTPRequest = $PopularHTTP
 	if http.request("https://flathub.org/api/v1/apps/collection/popular") != OK:
-		push_error("Load home request failed")
+		logger.warn("Load home request failed")
 
 
 func _on_popular_http_request_completed(result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray) -> void:
 	var json: JSON = JSON.new()
 	if json.parse(body.get_string_from_utf8()) != OK:
-		push_error("Unable to parse JSON from response")
+		logger.warn("Unable to parse JSON from response")
 		return
 	var response = json.get_data()
-	print(response)
 	
 	# Build the store items to send when home is loaded
 	store_items = []
@@ -42,7 +42,7 @@ func _on_popular_http_request_completed(result: int, response_code: int, headers
 	# trigger _on_image_http_request_completed when it is done.
 	var image_downloader: MultiHTTPRequest = $ImageHTTP
 	if image_downloader.request(store_images) != OK:
-		push_error("Error making http request for images")
+		logger.warn("Error making http request for images")
 
 
 func _on_image_http_request_completed(results: Array) -> void:
@@ -55,12 +55,12 @@ func _on_image_http_request_completed(results: Array) -> void:
 		
 		#result: int, response_code: int, headers: PackedStringArray, body: PackedByteArray
 		if result != HTTPRequest.RESULT_SUCCESS:
-			push_error("Image couldn't be downloaded. Try a different image.")
+			logger.warn("Image couldn't be downloaded. Try a different image.")
 
 		var image = Image.new()
 		var error = image.load_png_from_buffer(body)
 		if error != OK:
-			push_error("Couldn't load the image.")
+			logger.warn("Couldn't load the image.")
 
 		var texture = ImageTexture.create_from_image(image)
 		var store_item: StoreItem = store_items[i]
