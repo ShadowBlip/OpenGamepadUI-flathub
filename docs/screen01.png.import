@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cawobhyknr2qi"
-path="res://.godot/imported/grid-landscape.png-970a546b7288201d5436a3e864709c3b.ctex"
+uid="uid://bp3ynrntblih7"
+path="res://.godot/imported/screen01.png-743e852801214189e5503917a5a52b1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://plugins/flathub/assets/grid-landscape.png"
-dest_files=["res://.godot/imported/grid-landscape.png-970a546b7288201d5436a3e864709c3b.ctex"]
+source_file="res://plugins/flathub/docs/screen01.png"
+dest_files=["res://.godot/imported/screen01.png-743e852801214189e5503917a5a52b1c.ctex"]
 
 [params]
 

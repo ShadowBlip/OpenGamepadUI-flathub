@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c8obp5jbjdkgw"]
 
-[ext_resource type="Script" path="res://plugins/flathub/core/store.gd" id="1_y2sa5"]
-[ext_resource type="Script" path="res://core/systems/network/multi_http_request.gd" id="2_6yv0o"]
+[ext_resource type="Script" uid="uid://cqof0pdpt72qs" path="res://plugins/flathub/core/store.gd" id="1_y2sa5"]
+[ext_resource type="Script" uid="uid://cnm6swm7ke5vf" path="res://core/systems/network/multi_http_request.gd" id="2_6yv0o"]
 
 [node name="FlatHubStore" type="Node"]
 script = ExtResource("1_y2sa5")

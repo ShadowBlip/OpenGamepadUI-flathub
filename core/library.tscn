@@ -1,7 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://dxx5t2iv5k8r5"]
 
-[ext_resource type="Script" path="res://plugins/flathub/core/library.gd" id="1_tye5p"]
+[ext_resource type="Script" uid="uid://cmmoibgfmvdgo" path="res://plugins/flathub/core/library.gd" id="1_tye5p"]
 
 [node name="FlatHubLibrary" type="Node"]
 script = ExtResource("1_tye5p")
 library_id = "flathub"
+logger_name = "FlatHubLibrary"
+log_level = 4
